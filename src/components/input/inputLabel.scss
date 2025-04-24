@@ -23,6 +23,25 @@
 
   input:focus {
     outline: none;
+    box-shadow: 0px 0px 8px 1px rgb(187, 65, 71);
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+
+    width: 50px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+  }
+
+  button:focus {
+    outline: none;
     box-shadow: 1px 1px 8px 1px rgb(187, 65, 71);
   }
 }

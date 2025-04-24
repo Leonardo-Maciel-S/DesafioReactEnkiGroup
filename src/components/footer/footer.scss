@@ -1,0 +1,92 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+
+  position: relative;
+
+  border: 1px solid rgb(216, 216, 216);
+
+  padding: 8px 20px;
+
+  background-color: white;
+
+  .btn-status-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    .btnStatus {
+      font-size: 1rem;
+
+      padding: 3px 10px;
+
+      background-color: transparent;
+
+      border-radius: 3px;
+      border: 1px solid transparent;
+    }
+
+    .btnStatus:focus {
+      padding: 3px 10px;
+
+      background-color: transparent;
+
+      box-shadow: 0px 0px 2px 2px rgb(187, 65, 71);
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    a.active {
+      border: 1px solid rgb(187, 65, 71);
+    }
+  }
+
+  .btnClear {
+    font-size: 1rem;
+    background-color: transparent;
+    border: none;
+  }
+
+  .btnClear:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+footer::before {
+  content: "";
+
+  position: absolute;
+  bottom: -7px;
+  left: 4px;
+
+  border: 1px solid rgb(190, 190, 190);
+
+  background-color: white;
+
+  width: 98%;
+  height: 5px;
+  z-index: 3;
+}
+
+footer::after {
+  content: "";
+
+  position: absolute;
+  bottom: -13px;
+  left: 8px;
+
+  border: 1px solid rgb(190, 190, 190);
+
+  background-color: white;
+
+  width: 96%;
+  height: 5px;
+  z-index: 3;
+}

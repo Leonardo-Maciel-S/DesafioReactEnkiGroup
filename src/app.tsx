@@ -3,6 +3,8 @@ import { InputLabel } from "./components/input/InputLabel";
 import "./app.scss";
 import { TodoList } from "./components/todoList/TodoList";
 import { ChevronDown } from "lucide-react";
+import { Footer } from "./components/footer/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
   return (
@@ -12,7 +14,15 @@ export default function App() {
       <main className="">
         <InputLabel icon={ChevronDown} />
 
-        <TodoList />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<TodoList />} />
+            <Route path="/active" element={<TodoList />} />
+            <Route path="/completed" element={<TodoList />} />
+          </Routes>
+
+          <Footer />
+        </BrowserRouter>
       </main>
     </section>
   );
