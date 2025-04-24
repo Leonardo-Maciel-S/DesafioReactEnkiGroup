@@ -1,4 +1,4 @@
-.inputLabel-container {
+.todoItem-container {
   position: relative;
   width: 100%;
   height: 60px;
@@ -38,10 +38,5 @@
     align-items: center;
 
     z-index: 2;
-  }
-
-  button:focus {
-    outline: none;
-    box-shadow: 1px 1px 8px 1px rgb(187, 65, 71);
   }
 }

@@ -1,9 +1,11 @@
-import { getAllTodo } from "./get-all-todo";
 import { AxiosHttpClientMock } from "../mock/httpClient/axiosHttpClientMock";
+import { TodoAPI } from "./todoApi";
 
-describe("getAllTodo", () => {
-  it("should return correct data", async () => {
-    const data = await getAllTodo(new AxiosHttpClientMock());
+describe("todoApi", () => {
+  it("should return correct data in getAll function", async () => {
+    const todoApi = new TodoAPI(new AxiosHttpClientMock());
+
+    const data = await todoApi.getAll();
 
     const resMock = [
       {
