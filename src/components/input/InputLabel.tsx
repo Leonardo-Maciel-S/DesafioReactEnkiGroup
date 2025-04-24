@@ -1,9 +1,13 @@
 import "./inputLabel.scss";
+import { LucideIcon } from "lucide-react";
 
-export const InputLabel = () => {
+export const InputLabel = ({ icon: Icon }: { icon: LucideIcon }) => {
   return (
     <div className="inputLabel-container">
-      <input type="text" placeholder="Whats needs to be done?" />
+      <button type="button">
+        <Icon size={35} />
+      </button>
+      <input type="text" placeholder="What needs to be done?" />
     </div>
   );
 };
