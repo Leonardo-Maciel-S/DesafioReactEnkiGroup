@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 export const TodoList = () => {
   const location = useLocation();
 
-  const filter = !(location.pathname === "/active");
+  const filter = location.pathname === "/active";
 
   const todoApi = new TodoAPI(new AxiosHttpClient());
 

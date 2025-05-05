@@ -6,4 +6,6 @@ export interface IApiRequest {
   create: (item: Omit<ToDoItem, "id">) => Promise<ToDoItem>;
 
   check: (id: string, body: ToDoItem) => Promise<ToDoItem>;
+
+  getTodosByCompletionStatus: (isDone: boolean) => Promise<ToDoItem[]>;
 }

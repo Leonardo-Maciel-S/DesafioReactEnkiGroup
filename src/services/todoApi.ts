@@ -14,6 +14,15 @@ export class TodoAPI implements IApiRequest {
     return data;
   }
 
+  async getTodosByCompletionStatus(isDone: boolean): Promise<ToDoItem[]> {
+    const data = await this.httpClient.request<ToDoItem[]>({
+      method: "get",
+      url: "http://localhost:3333/todos",
+    });
+
+    return data.filter((todo) => todo.isDone === isDone);
+  }
+
   async create(item: Omit<ToDoItem, "id">): Promise<ToDoItem> {
     const data = await this.httpClient.request<ToDoItem>({
       method: "post",
