@@ -1,4 +1,9 @@
+import { ToDoItem } from "./toDoItem";
+
 export interface IApiRequest {
-  getAll: <T>() => Promise<T[]>;
-  create: <T>(item: T) => T;
+  getAll: () => Promise<ToDoItem[]>;
+
+  create: (item: Omit<ToDoItem, "id">) => Promise<ToDoItem>;
+
+  check: (id: string, body: ToDoItem) => Promise<ToDoItem>;
 }

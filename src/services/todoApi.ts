@@ -5,7 +5,7 @@ import { ToDoItem } from "../@types/todo/toDoItem";
 export class TodoAPI implements IApiRequest {
   constructor(private httpClient: IHttpClient) {}
 
-  async getAll(): Promise<any> {
+  async getAll<ToDoItem>(): Promise<ToDoItem[]> {
     const data = await this.httpClient.request<ToDoItem[]>({
       method: "get",
       url: "http://localhost:3333/todos",
@@ -14,7 +14,23 @@ export class TodoAPI implements IApiRequest {
     return data;
   }
 
-  create<T>(item: T): T {
-    return item;
+  async create(item: Omit<ToDoItem, "id">): Promise<ToDoItem> {
+    const data = await this.httpClient.request<ToDoItem>({
+      method: "post",
+      url: "http://localhost:3333/todos",
+      body: JSON.stringify(item),
+    });
+
+    return data;
+  }
+
+  async check(id: string, body: ToDoItem): Promise<ToDoItem> {
+    const data = await this.httpClient.request<ToDoItem>({
+      method: "put",
+      url: `http://localhost:3333/todos/${id}`,
+      body: JSON.stringify(body),
+    });
+
+    return data;
   }
 }

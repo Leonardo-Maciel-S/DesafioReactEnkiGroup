@@ -17,8 +17,8 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<TodoList />} />
-            <Route path="/active" element={<TodoList />} />
-            <Route path="/completed" element={<TodoList />} />
+            {/* <Route path="/active" element={<TodoList />} />
+            <Route path="/completed" element={<TodoList />} /> */}
           </Routes>
 
           <Footer />
