@@ -19,8 +19,6 @@ export const TodoItem = ({ todo }: TodoItemProps) => {
     mutate();
   };
 
-  console.log("render");
-
   return (
     <div className="todoItem-container">
       <button type="button" onClick={handleCheck}>

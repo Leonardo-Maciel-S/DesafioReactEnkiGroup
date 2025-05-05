@@ -1,23 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
 import { TodoAPI } from "../../services/todoApi";
-import { AxiosHttpClient } from "../../http/httpClients/axiosHttpClient";
-import { ToDoItem } from "../../@types/todo/toDoItem";
 import { TodoItem } from "../todoItem/TodoItem";
-import { useLocation } from "react-router-dom";
+import { useGetAllTodo } from "../../hooks/useGetAllTodo";
 
-export const TodoList = () => {
-  const location = useLocation();
+interface TodoListProps {
+  todoAPI: TodoAPI;
+}
 
-  const filter = location.pathname === "/active";
-
-  const todoApi = new TodoAPI(new AxiosHttpClient());
-
-  const { data, isLoading } = useQuery<ToDoItem[]>({
-    queryKey: ["todos"],
-    queryFn: () => todoApi.getAll(),
-  });
-
-  if (isLoading || !data) <p>Carregando...</p>;
+export const TodoList = ({ todoAPI }: TodoListProps) => {
+  const { data } = useGetAllTodo(todoAPI);
 
   return (
     <div>

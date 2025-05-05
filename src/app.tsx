@@ -4,9 +4,14 @@ import "./app.scss";
 import { TodoList } from "./components/todoList/TodoList";
 import { ChevronDown } from "lucide-react";
 import { Footer } from "./components/footer/Footer";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { TodoListFilter } from "./components/todoListFilter/TodoListFilter";
+import { TodoAPI } from "./services/todoApi";
+import { AxiosHttpClient } from "./http/httpClients/axiosHttpClient";
 
 export default function App() {
+  const todoAPI = new TodoAPI(new AxiosHttpClient());
+
   return (
     <section>
       <h1>todos</h1>
@@ -16,9 +21,17 @@ export default function App() {
 
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<TodoList />} />
-            <Route path="/active" element={<TodoList />} />
-            <Route path="/completed" element={<TodoList />} />
+            <Route path="/" element={<TodoList todoAPI={todoAPI} />} />
+            <Route
+              path="/active"
+              element={<TodoListFilter todoAPI={todoAPI} />}
+            />
+            <Route
+              path="/completed"
+              element={<TodoListFilter todoAPI={todoAPI} />}
+            />
+
+            <Route path="/*" element={<Navigate to={"/"} />} />
           </Routes>
 
           <Footer />

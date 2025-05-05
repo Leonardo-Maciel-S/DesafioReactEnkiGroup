@@ -5,11 +5,13 @@ import { ToDoItem } from "../@types/todo/toDoItem";
 interface useGetTodoFilteredProps {
   isDone: boolean;
   todoAPI: TodoAPI;
+  url: string;
 }
 
-export const useGetTodoFiltered = ({
+export const useGetTodosByCompletionStatus = ({
   isDone,
   todoAPI,
+  url,
 }: useGetTodoFilteredProps) => {
   const getTodoFilter = async () => {
     const todos = await todoAPI.getTodosByCompletionStatus(isDone);
@@ -17,10 +19,10 @@ export const useGetTodoFiltered = ({
     return todos;
   };
 
-  const { data } = useQuery<ToDoItem[]>({
-    queryKey: ["filtered"],
+  const { data, isLoading } = useQuery<ToDoItem[]>({
+    queryKey: ["filtered", url],
     queryFn: () => getTodoFilter(),
   });
 
-  return { data };
+  return { data, isLoading };
 };

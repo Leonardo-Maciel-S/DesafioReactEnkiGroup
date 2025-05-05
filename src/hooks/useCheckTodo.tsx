@@ -22,7 +22,11 @@ export const useCheckTodo = ({ todo, todoApi }: useCheckTodoProps) => {
 
     onSuccess: () => {
       useClient.invalidateQueries({
-        queryKey: ["todos"],
+        queryKey: ["allTodos"],
+      });
+
+      useClient.invalidateQueries({
+        queryKey: ["filtered"],
       });
     },
   });

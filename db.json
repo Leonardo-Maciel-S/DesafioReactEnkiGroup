@@ -3,17 +3,17 @@
     {
       "id": "flrGI",
       "title": "Lavar os pratos",
-      "isDone": true
+      "isDone": false
     },
     {
       "id": "Tw-I9",
       "title": "Cortar a grama",
-      "isDone": true
+      "isDone": false
     },
     {
       "id": "7f2sf",
       "title": "Comprar pão",
-      "isDone": false
+      "isDone": true
     }
   ]
 }
