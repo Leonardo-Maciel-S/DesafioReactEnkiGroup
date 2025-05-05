@@ -1,8 +1,4 @@
-import { useEffect, useState } from "react";
 import { LucideIcon } from "lucide-react";
-import { AxiosHttpClient } from "../../http/httpClients/axiosHttpClient";
-import { ToDoItem } from "../../@types/todo/toDoItem";
-import { TodoAPI } from "../../services/todoApi";
 
 import "./inputLabel.scss";
 

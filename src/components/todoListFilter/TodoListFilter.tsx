@@ -12,7 +12,7 @@ export const TodoListFilter = ({ todoAPI }: TodoListFilterProps) => {
 
   const isDone = location.pathname === "/completed";
 
-  const { data, isLoading } = useGetTodosByCompletionStatus({
+  const { data } = useGetTodosByCompletionStatus({
     isDone,
     todoAPI,
     url: location.pathname,
