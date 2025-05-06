@@ -20,7 +20,7 @@ export default function App() {
       <h1>todos</h1>
 
       <main className="">
-        <InputLabel icon={ChevronDown} />
+        <InputLabel service={todoAPI} icon={ChevronDown} />
 
         <BrowserRouter>
           <Routes>

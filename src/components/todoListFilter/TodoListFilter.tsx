@@ -1,9 +1,9 @@
+import { IApiRequest } from "../../@types/todo/apiRequests";
 import { useGetTodoByStatus } from "../../hooks/useGetTodoByStatus";
-import { TodoAPI } from "../../services/todoApi";
 import { TodoItem } from "../todoItem/TodoItem";
 
 interface TodoListFilterProps {
-  todoAPI: TodoAPI;
+  todoAPI: IApiRequest;
   isDone: boolean;
 }
 

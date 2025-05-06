@@ -1,8 +1,8 @@
-import { TodoAPI } from "../services/todoApi";
+import { IApiRequest } from "../@types/todo/apiRequests";
 import { useGetAllTodo } from "./useGetAllTodo";
 
 type useGetTodoByStatusProps = {
-  service: TodoAPI;
+  service: IApiRequest;
   isDone: boolean;
 };
 

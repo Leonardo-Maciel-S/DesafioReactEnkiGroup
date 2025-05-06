@@ -1,9 +1,9 @@
-import { TodoAPI } from "../../services/todoApi";
 import { TodoItem } from "../todoItem/TodoItem";
 import { useGetAllTodo } from "../../hooks/useGetAllTodo";
+import { IApiRequest } from "../../@types/todo/apiRequests";
 
 interface TodoListProps {
-  todoAPI: TodoAPI;
+  todoAPI: IApiRequest;
 }
 
 export const TodoList = ({ todoAPI }: TodoListProps) => {

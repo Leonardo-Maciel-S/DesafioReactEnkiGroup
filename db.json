@@ -3,7 +3,7 @@
     {
       "id": "1",
       "title": "Lavar os pratos",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "2",
@@ -13,6 +13,16 @@
     {
       "id": "3",
       "title": "Comprar pão",
+      "isDone": true
+    },
+    {
+      "id": "bc83",
+      "title": "teste",
+      "isDone": true
+    },
+    {
+      "id": "85f6",
+      "title": "alou",
       "isDone": true
     }
   ]
