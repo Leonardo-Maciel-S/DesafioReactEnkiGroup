@@ -1,10 +1,19 @@
 import { NavLink } from "react-router-dom";
+import { TodoAPI } from "../../services/todoApi";
+
 import "./footer.scss";
 
-export const Footer = () => {
+import { useGetTodoByStatus } from "../../hooks/useGetTodoByStatus";
+
+export const Footer = ({ todoAPI }: { todoAPI: TodoAPI }) => {
+  const { todoListFiltered } = useGetTodoByStatus({
+    service: todoAPI,
+    isDone: false,
+  });
+
   return (
     <footer>
-      <div>Items left!</div>
+      <div>{todoListFiltered?.length} Items left!</div>
 
       <div className="btn-status-container">
         <NavLink to={"/"} className="btnStatus">

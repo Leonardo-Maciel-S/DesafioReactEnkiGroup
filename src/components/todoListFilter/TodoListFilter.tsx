@@ -1,26 +1,21 @@
+import { useGetTodoByStatus } from "../../hooks/useGetTodoByStatus";
 import { TodoAPI } from "../../services/todoApi";
 import { TodoItem } from "../todoItem/TodoItem";
-import { useLocation } from "react-router-dom";
-import { useGetTodosByCompletionStatus } from "../../hooks/useGetTodoFiltered";
 
 interface TodoListFilterProps {
   todoAPI: TodoAPI;
+  isDone: boolean;
 }
 
-export const TodoListFilter = ({ todoAPI }: TodoListFilterProps) => {
-  const location = useLocation();
-
-  const isDone = location.pathname === "/completed";
-
-  const { data } = useGetTodosByCompletionStatus({
+export const TodoListFilter = ({ todoAPI, isDone }: TodoListFilterProps) => {
+  const { todoListFiltered } = useGetTodoByStatus({
+    service: todoAPI,
     isDone,
-    todoAPI,
-    url: location.pathname,
   });
 
   return (
     <div>
-      {data?.map((todo) => (
+      {todoListFiltered?.map((todo) => (
         <TodoItem key={todo.id} todo={todo} />
       ))}
     </div>

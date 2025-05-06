@@ -1,0 +1,20 @@
+import { TodoAPI } from "../services/todoApi";
+import { useGetAllTodo } from "./useGetAllTodo";
+
+type useGetTodoByStatusProps = {
+  service: TodoAPI;
+  isDone: boolean;
+};
+
+export const useGetTodoByStatus = ({
+  service,
+  isDone,
+}: useGetTodoByStatusProps) => {
+  const { data } = useGetAllTodo(service);
+
+  const todoListFiltered = data?.filter((todo) => todo.isDone === isDone);
+
+  return {
+    todoListFiltered,
+  };
+};

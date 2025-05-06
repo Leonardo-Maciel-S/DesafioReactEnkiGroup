@@ -1,13 +1,16 @@
-import { InputLabel } from "./components/input/InputLabel";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+
+import { AxiosHttpClient } from "./http/httpClients/axiosHttpClient";
+
+import { TodoAPI } from "./services/todoApi";
 
 import "./app.scss";
+
+import { InputLabel } from "./components/input/InputLabel";
 import { TodoList } from "./components/todoList/TodoList";
 import { ChevronDown } from "lucide-react";
 import { Footer } from "./components/footer/Footer";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { TodoListFilter } from "./components/todoListFilter/TodoListFilter";
-import { TodoAPI } from "./services/todoApi";
-import { AxiosHttpClient } from "./http/httpClients/axiosHttpClient";
 
 export default function App() {
   const todoAPI = new TodoAPI(new AxiosHttpClient());
@@ -24,17 +27,17 @@ export default function App() {
             <Route path="/" element={<TodoList todoAPI={todoAPI} />} />
             <Route
               path="/active"
-              element={<TodoListFilter todoAPI={todoAPI} />}
+              element={<TodoListFilter isDone={false} todoAPI={todoAPI} />}
             />
             <Route
               path="/completed"
-              element={<TodoListFilter todoAPI={todoAPI} />}
+              element={<TodoListFilter isDone={true} todoAPI={todoAPI} />}
             />
 
             <Route path="/*" element={<Navigate to={"/"} />} />
           </Routes>
 
-          <Footer />
+          <Footer todoAPI={todoAPI} />
         </BrowserRouter>
       </main>
     </section>
