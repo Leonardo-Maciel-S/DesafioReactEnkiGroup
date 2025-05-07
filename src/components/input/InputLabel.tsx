@@ -11,10 +11,10 @@ export const InputLabel = ({
   icon: LucideIcon;
   service: IApiRequest;
 }) => {
-  const { mutate, titleRef } = useCreateTodo(service);
+  const { handleSubmit, titleRef } = useCreateTodo(service);
 
   return (
-    <form onSubmit={() => mutate()} className="inputLabel-container">
+    <form onSubmit={handleSubmit} className="inputLabel-container">
       <button type="button">
         <Icon size={35} />
       </button>

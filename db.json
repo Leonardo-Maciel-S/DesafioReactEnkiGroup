@@ -8,22 +8,12 @@
     {
       "id": "13sd",
       "title": "Cortar a grama",
-      "isDone": true
+      "isDone": false
     },
     {
       "id": "ac44",
       "title": "Comprar pãoasdsad",
       "isDone": true
-    },
-    {
-      "id": "e123",
-      "title": "teste",
-      "isDone": false
-    },
-    {
-      "id": "ea6e",
-      "title": "teste",
-      "isDone": false
     }
   ]
 }
