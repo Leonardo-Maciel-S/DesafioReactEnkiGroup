@@ -6,7 +6,6 @@ export class TodoAPI implements IApiRequest {
   constructor(private httpClient: IHttpClient) {}
 
   async getAll<ToDoItem>(): Promise<ToDoItem[]> {
-    console.log("getAll");
     const data = await this.httpClient.request<ToDoItem[]>({
       method: "get",
       url: "http://localhost:3333/todos",
@@ -49,6 +48,16 @@ export class TodoAPI implements IApiRequest {
       method: "delete",
       url: `http://localhost:3333/todos/${id}`,
     });
+    return data;
+  }
+
+  async edit(id: string, body: ToDoItem): Promise<ToDoItem> {
+    const data = await this.httpClient.request<ToDoItem>({
+      method: "put",
+      url: `http://localhost:3333/todos/${id}`,
+      body: JSON.stringify(body),
+    });
+
     return data;
   }
 }
