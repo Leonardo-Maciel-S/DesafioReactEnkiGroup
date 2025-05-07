@@ -4,15 +4,15 @@ import { IApiRequest } from "../@types/todo/apiRequests";
 
 interface useCheckTodoProps {
   todo: ToDoItem;
-  todoApi: IApiRequest;
+  service: IApiRequest;
 }
 
-export const useCheckTodo = ({ todo, todoApi }: useCheckTodoProps) => {
+export const useCheckTodo = ({ todo, service }: useCheckTodoProps) => {
   const useClient = useQueryClient();
 
   const { mutate } = useMutation({
     mutationFn: () => {
-      const data = todoApi.check(todo.id, {
+      const data = service.check(todo.id, {
         ...todo,
         isDone: !todo.isDone,
       });
@@ -32,6 +32,6 @@ export const useCheckTodo = ({ todo, todoApi }: useCheckTodoProps) => {
   });
 
   return {
-    mutate,
+    toggleCheck: mutate,
   };
 };

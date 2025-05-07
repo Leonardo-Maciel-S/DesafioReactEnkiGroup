@@ -13,31 +13,31 @@ import { Footer } from "./components/footer/Footer";
 import { TodoListFilter } from "./components/todoListFilter/TodoListFilter";
 
 export default function App() {
-  const todoAPI = new TodoAPI(new AxiosHttpClient());
+  const service = new TodoAPI(new AxiosHttpClient());
 
   return (
     <section>
       <h1>todos</h1>
 
       <main className="">
-        <InputLabel service={todoAPI} icon={ChevronDown} />
+        <InputLabel service={service} icon={ChevronDown} />
 
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<TodoList todoAPI={todoAPI} />} />
+            <Route path="/" element={<TodoList service={service} />} />
             <Route
               path="/active"
-              element={<TodoListFilter isDone={false} todoAPI={todoAPI} />}
+              element={<TodoListFilter isDone={false} service={service} />}
             />
             <Route
               path="/completed"
-              element={<TodoListFilter isDone={true} todoAPI={todoAPI} />}
+              element={<TodoListFilter isDone={true} service={service} />}
             />
 
             <Route path="/*" element={<Navigate to={"/"} />} />
           </Routes>
 
-          <Footer todoAPI={todoAPI} />
+          <Footer service={service} />
         </BrowserRouter>
       </main>
     </section>

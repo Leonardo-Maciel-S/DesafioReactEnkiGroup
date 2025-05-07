@@ -3,20 +3,20 @@ import { useGetTodoByStatus } from "../../hooks/useGetTodoByStatus";
 import { TodoItem } from "../todoItem/TodoItem";
 
 interface TodoListFilterProps {
-  todoAPI: IApiRequest;
+  service: IApiRequest;
   isDone: boolean;
 }
 
-export const TodoListFilter = ({ todoAPI, isDone }: TodoListFilterProps) => {
+export const TodoListFilter = ({ service, isDone }: TodoListFilterProps) => {
   const { todoListFiltered } = useGetTodoByStatus({
-    service: todoAPI,
+    service: service,
     isDone,
   });
 
   return (
     <div>
       {todoListFiltered?.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
+        <TodoItem key={todo.id} todo={todo} service={service} />
       ))}
     </div>
   );

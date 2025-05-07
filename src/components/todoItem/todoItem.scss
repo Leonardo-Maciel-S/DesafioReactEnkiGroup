@@ -1,3 +1,5 @@
+$red: rgb(187, 65, 71);
+
 .todoItem-container {
   position: relative;
   width: 100%;
@@ -5,6 +7,20 @@
 
   display: flex;
   align-items: center;
+
+  button {
+    border: none;
+    background-color: transparent;
+
+    width: 50px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+  }
 
   input {
     border: 1px solid rgb(216, 216, 216);
@@ -24,7 +40,7 @@
 
   input:focus {
     outline: none;
-    box-shadow: 0px 0px 8px 1px rgb(187, 65, 71);
+    box-shadow: 0px 0px 8px 1px $red;
     z-index: 2;
   }
 
@@ -34,17 +50,20 @@
     transition: all 400ms linear ease-in;
   }
 
-  button {
-    border: none;
-    background-color: transparent;
+  .btn-delete {
+    position: absolute;
+    right: 15px;
 
-    width: 50px;
-    height: 100%;
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .btn-delete:hover {
+    color: $red;
+    cursor: pointer;
+  }
 
-    z-index: 2;
+  input:hover .btn-delete {
+    display: none;
   }
 }

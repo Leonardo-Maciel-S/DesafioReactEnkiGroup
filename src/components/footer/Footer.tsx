@@ -5,9 +5,9 @@ import "./footer.scss";
 
 import { useGetTodoByStatus } from "../../hooks/useGetTodoByStatus";
 
-export const Footer = ({ todoAPI }: { todoAPI: TodoAPI }) => {
+export const Footer = ({ service }: { service: TodoAPI }) => {
   const { todoListFiltered } = useGetTodoByStatus({
-    service: todoAPI,
+    service,
     isDone: false,
   });
 

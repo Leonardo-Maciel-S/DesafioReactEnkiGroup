@@ -8,4 +8,6 @@ export interface IApiRequest {
   check: (id: string, body: ToDoItem) => Promise<ToDoItem>;
 
   getTodosByCompletionStatus: (isDone: boolean) => Promise<ToDoItem[]>;
+
+  delete: (id: string) => Promise<ToDoItem>;
 }

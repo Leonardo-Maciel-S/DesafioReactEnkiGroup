@@ -3,16 +3,16 @@ import { useGetAllTodo } from "../../hooks/useGetAllTodo";
 import { IApiRequest } from "../../@types/todo/apiRequests";
 
 interface TodoListProps {
-  todoAPI: IApiRequest;
+  service: IApiRequest;
 }
 
-export const TodoList = ({ todoAPI }: TodoListProps) => {
-  const { data } = useGetAllTodo(todoAPI);
+export const TodoList = ({ service }: TodoListProps) => {
+  const { data } = useGetAllTodo(service);
 
   return (
     <div>
       {data?.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
+        <TodoItem key={todo.id} todo={todo} service={service} />
       ))}
     </div>
   );
