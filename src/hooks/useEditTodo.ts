@@ -27,7 +27,7 @@ export const useEditTodo = ({ service, todo }: useEditTodoProps) => {
     },
 
     onSuccess: () => {
-      queryClient.invalidateQueries(["getAll"]);
+      queryClient.invalidateQueries(["allTodos"]);
     },
   });
 

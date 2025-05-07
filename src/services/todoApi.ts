@@ -60,4 +60,10 @@ export class TodoAPI implements IApiRequest {
 
     return data;
   }
+
+  async toggleCheckOrUnCheckAll(todos: ToDoItem[], isDone: boolean) {
+    todos.forEach(async (todo) => {
+      await this.edit(todo.id, { ...todo, isDone });
+    });
+  }
 }

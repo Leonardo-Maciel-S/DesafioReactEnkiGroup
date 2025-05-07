@@ -3,7 +3,7 @@
     {
       "id": "ad12",
       "title": "Lavar os pratos",
-      "isDone": true
+      "isDone": false
     },
     {
       "id": "13sd",
@@ -13,7 +13,7 @@
     {
       "id": "ac44",
       "title": "Comprar pãoasdsad",
-      "isDone": true
+      "isDone": false
     }
   ]
 }
