@@ -54,6 +54,8 @@ $red: rgb(187, 65, 71);
     position: absolute;
     right: 15px;
 
+    display: none;
+
     font-weight: 700;
     font-size: 1.3rem;
   }
@@ -61,9 +63,10 @@ $red: rgb(187, 65, 71);
   .btn-delete:hover {
     color: $red;
     cursor: pointer;
+    display: block;
   }
 
-  input:hover .btn-delete {
-    display: none;
+  input:hover + .btn-delete {
+    display: block;
   }
 }

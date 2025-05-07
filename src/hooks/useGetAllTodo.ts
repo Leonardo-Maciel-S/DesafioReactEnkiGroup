@@ -6,6 +6,7 @@ export const useGetAllTodo = (todoAPI: IApiRequest) => {
   const { data } = useQuery<ToDoItem[]>({
     queryKey: ["allTodos"],
     queryFn: () => todoAPI.getAll(),
+    keepPreviousData: true,
   });
 
   return { data };
