@@ -12,5 +12,5 @@ export const useDeleteTodo = (service: IApiRequest) => {
     },
   });
 
-  return { mutate };
+  return { handleDelete: mutate };
 };
