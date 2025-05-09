@@ -2,6 +2,10 @@
 
 Bem-vindo ao teste para desenvolvimento front-end na enContact.
 
+## Minha Versão
+
+![alt text](image.png)
+
 ## O teste
 
 Para testar suas habilidades em TypeScript e folhas de estilos, nos baseamos no projeto [Todo MVC](https://todomvc.com).
