@@ -6,6 +6,40 @@ Bem-vindo ao teste para desenvolvimento front-end na enContact.
 
 ![alt text](image.png)
 
+### Como executar o código
+
+#### Clonando o repo
+
+Abra seu terminal e copie o comando a seguir:
+
+```bash
+npm clone https://github.com/Leonardo-Maciel-S/DesafioReactEnkiGroup.git
+```
+
+#### Instalando dependência
+
+No mesmo terminal digite:
+
+```bash
+npm i
+```
+
+#### Executando o json-server "API"
+
+No mesmo terminal digite o código a seguir deixa executando.
+
+```bash
+npx json-server db.json -p 3333
+```
+
+#### Executando a aplicação
+
+Abra outro terminal e digite:
+
+```bash
+npm start
+```
+
 ## O teste
 
 Para testar suas habilidades em TypeScript e folhas de estilos, nos baseamos no projeto [Todo MVC](https://todomvc.com).
