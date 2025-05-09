@@ -14,4 +14,6 @@ export interface IApiRequest {
   edit: (id: string, body: ToDoItem) => Promise<ToDoItem>;
 
   toggleCheckOrUnCheckAll: (todos: ToDoItem[], isDone: boolean) => void;
+
+  deleteCompleted: (todos: ToDoItem[]) => void;
 }

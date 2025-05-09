@@ -1,14 +1,20 @@
 import { NavLink } from "react-router-dom";
-import { TodoAPI } from "../../services/todoApi";
 
 import "./footer.scss";
 
 import { useGetTodoByStatus } from "../../hooks/useGetTodoByStatus";
+import { IApiRequest } from "../../@types/todo/apiRequests";
+import { useDeleteAllCompleted } from "../../hooks/useDeleteAllCompleted";
 
-export const Footer = ({ service }: { service: TodoAPI }) => {
-  const { todoListFiltered } = useGetTodoByStatus({
+export const Footer = ({ service }: { service: IApiRequest }) => {
+  const { todoListFiltered, data } = useGetTodoByStatus({
     service,
     isDone: false,
+  });
+
+  const { handleDeleteAllCompleted } = useDeleteAllCompleted({
+    service,
+    todos: data,
   });
 
   return (
@@ -27,7 +33,11 @@ export const Footer = ({ service }: { service: TodoAPI }) => {
         </NavLink>
       </div>
 
-      <button type="button" className="btnClear">
+      <button
+        type="button"
+        className="btnClear"
+        onClick={handleDeleteAllCompleted}
+      >
         Clear completed
       </button>
     </footer>

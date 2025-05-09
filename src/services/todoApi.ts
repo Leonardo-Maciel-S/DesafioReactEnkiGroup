@@ -68,4 +68,14 @@ export class TodoAPI implements IApiRequest {
 
     return;
   }
+
+  async deleteCompleted(todos: ToDoItem[]) {
+    todos.forEach(async (todo) => {
+      if (todo.isDone) {
+        await this.delete(todo.id);
+      }
+    });
+
+    return;
+  }
 }
