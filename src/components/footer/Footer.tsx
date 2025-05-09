@@ -18,28 +18,32 @@ export const Footer = ({ service }: { service: IApiRequest }) => {
   });
 
   return (
-    <footer>
-      <div>{todoListFiltered?.length} Items left!</div>
+    <>
+      {data?.length > 0 && (
+        <footer>
+          <div>{todoListFiltered?.length} Items left!</div>
 
-      <div className="btn-status-container">
-        <NavLink to={"/"} className="btnStatus">
-          All
-        </NavLink>
-        <NavLink to={"/active"} className="btnStatus">
-          Active
-        </NavLink>
-        <NavLink to={"/completed"} className="btnStatus">
-          Completed
-        </NavLink>
-      </div>
+          <div className="btn-status-container">
+            <NavLink to={"/"} className="btnStatus">
+              All
+            </NavLink>
+            <NavLink to={"/active"} className="btnStatus">
+              Active
+            </NavLink>
+            <NavLink to={"/completed"} className="btnStatus">
+              Completed
+            </NavLink>
+          </div>
 
-      <button
-        type="button"
-        className="btnClear"
-        onClick={handleDeleteAllCompleted}
-      >
-        Clear completed
-      </button>
-    </footer>
+          <button
+            type="button"
+            className="btnClear"
+            onClick={handleDeleteAllCompleted}
+          >
+            Clear completed
+          </button>
+        </footer>
+      )}
+    </>
   );
 };

@@ -22,12 +22,15 @@ export const InputLabel = ({ service }: { service: IApiRequest }) => {
     isDone: isDone,
   });
 
-  let hasTodoInListFiltered = todoListFiltered.length > 0;
-  let hasTodoNotCompleted = data.filter((todo) => !todo.isDone).length > 0;
+  const hasTodoInListFiltered = todoListFiltered.length > 0;
+  const hasTodoNotCompleted = data.filter((todo) => !todo.isDone).length > 0;
+
+  const showButtonCheckAll =
+    (hasTodoInListFiltered || inHome) && data.length > 0;
 
   return (
     <form onSubmit={handleSubmit} className="inputLabel-container">
-      {(hasTodoInListFiltered || inHome) && (
+      {showButtonCheckAll && (
         <button
           type="button"
           onClick={() => {
