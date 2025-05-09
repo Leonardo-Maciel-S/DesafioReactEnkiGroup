@@ -5,6 +5,7 @@ import { useCheckTodo } from "../../hooks/useCheckTodo";
 import { IApiRequest } from "../../@types/todo/apiRequests";
 
 import "./todoItem.scss";
+
 import { useDeleteTodo } from "../../hooks/useDeleteTodo";
 import { useEditTodo } from "../../hooks/useEditTodo";
 import { useState } from "react";
@@ -16,6 +17,7 @@ interface TodoItemProps {
 
 export const TodoItem = ({ todo, service }: TodoItemProps) => {
   const [readOnly, setReadOnly] = useState(true);
+  const prevTitle = todo.title;
 
   const { toggleCheck } = useCheckTodo({ todo, service });
   const { handleDelete } = useDeleteTodo(service);
@@ -36,6 +38,11 @@ export const TodoItem = ({ todo, service }: TodoItemProps) => {
 
   const handleBlur = () => {
     setReadOnly(true);
+
+    if (inputRef.current && !inputRef.current?.value) {
+      inputRef.current.value = prevTitle;
+    }
+
     setTimeout(() => {
       inputRef.current?.classList.remove("focus");
     }, 0);

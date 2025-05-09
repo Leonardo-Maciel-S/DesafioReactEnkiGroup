@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": "ad12",
+      "title": "Lavar os pratos",
+      "isDone": false
+    },
+    {
+      "id": "13sd",
+      "title": "Cortar a grama",
+      "isDone": false
+    },
+    {
+      "id": "ac44",
+      "title": "Comprar pão",
+      "isDone": false
+    }
+  ]
+}

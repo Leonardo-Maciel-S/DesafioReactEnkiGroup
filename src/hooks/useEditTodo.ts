@@ -15,7 +15,7 @@ export const useEditTodo = ({ service, todo }: useEditTodoProps) => {
 
   const { mutate } = useMutation({
     mutationFn: async () => {
-      if (!inputRef.current) return;
+      if (!inputRef.current || !inputRef.current.value) return;
 
       const data = await service.edit(todo.id, {
         id: todo.id,
@@ -34,9 +34,11 @@ export const useEditTodo = ({ service, todo }: useEditTodoProps) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    mutate();
+    if (!inputRef.current || !inputRef.current.value) {
+      return;
+    }
 
-    if (!inputRef.current) return;
+    mutate();
 
     inputRef.current.blur();
   };

@@ -9,7 +9,7 @@ export const useCreateTodo = (service: IApiRequest) => {
 
   const { mutate } = useMutation({
     mutationFn: async () => {
-      if (!titleRef.current) return;
+      if (!titleRef.current || !titleRef.current.value) return;
 
       const response = await service.create({
         title: titleRef.current.value,

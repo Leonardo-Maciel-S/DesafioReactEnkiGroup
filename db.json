@@ -1,24 +1,9 @@
 {
   "todos": [
     {
-      "id": "ad12",
-      "title": "Lavar os pratos",
-      "isDone": true
-    },
-    {
-      "id": "13sd",
-      "title": "Cortar a grama",
-      "isDone": true
-    },
-    {
-      "id": "ac44",
-      "title": "Comprar pãoasdsad",
-      "isDone": true
-    },
-    {
-      "id": "31b1",
+      "id": "8268",
       "title": "teste",
-      "isDone": true
+      "isDone": false
     }
   ]
 }
