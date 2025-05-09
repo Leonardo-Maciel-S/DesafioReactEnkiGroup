@@ -9,20 +9,20 @@ export const useToggleCheckOrUnCheckAll = (service: IApiRequest) => {
 
   const { mutate } = useMutation({
     mutationFn: async (isDone: boolean) => {
-      if (!todos) return;
-
-      service.toggleCheckOrUnCheckAll(todos, isDone);
+      await service.toggleCheckOrUnCheckAll(todos, isDone);
 
       return;
     },
 
     onSuccess: () => {
-      queryClient.invalidateQueries(["allTodos"]);
+      setTimeout(() => {
+        queryClient.invalidateQueries(["allTodos"]);
+      }, 100);
     },
   });
 
-  const handleToggleCheck = (isDone?: boolean) => {
-    mutate(isDone === true);
+  const handleToggleCheck = (isDone: boolean) => {
+    mutate(isDone);
   };
 
   return { handleToggleCheck };

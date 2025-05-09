@@ -12,9 +12,14 @@ export const useGetTodoByStatus = ({
 }: useGetTodoByStatusProps) => {
   const { data } = useGetAllTodo(service);
 
-  const todoListFiltered = data?.filter((todo) => todo.isDone === isDone);
+  let todoListFiltered = data?.filter((todo) => todo.isDone === isDone);
+
+  if (!todoListFiltered) {
+    todoListFiltered = [];
+  }
 
   return {
     todoListFiltered,
+    data,
   };
 };

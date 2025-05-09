@@ -3,11 +3,14 @@ import { ToDoItem } from "../@types/todo/toDoItem";
 import { IApiRequest } from "../@types/todo/apiRequests";
 
 export const useGetAllTodo = (todoAPI: IApiRequest) => {
-  const { data } = useQuery<ToDoItem[]>({
+  let { data } = useQuery<ToDoItem[]>({
     queryKey: ["allTodos"],
     queryFn: () => todoAPI.getAll(),
-    keepPreviousData: true,
   });
+
+  if (!data) {
+    data = [];
+  }
 
   return { data };
 };

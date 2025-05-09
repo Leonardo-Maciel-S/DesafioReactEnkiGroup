@@ -8,7 +8,6 @@ import "./app.scss";
 
 import { InputLabel } from "./components/input/InputLabel";
 import { TodoList } from "./components/todoList/TodoList";
-import { ChevronDown } from "lucide-react";
 import { Footer } from "./components/footer/Footer";
 import { TodoListFilter } from "./components/todoListFilter/TodoListFilter";
 
@@ -20,9 +19,9 @@ export default function App() {
       <h1>todos</h1>
 
       <main className="">
-        <InputLabel service={service} icon={ChevronDown} />
-
         <BrowserRouter>
+          <InputLabel service={service} />
+
           <Routes>
             <Route path="/" element={<TodoList service={service} />} />
             <Route

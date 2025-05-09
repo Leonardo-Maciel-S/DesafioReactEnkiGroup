@@ -65,5 +65,7 @@ export class TodoAPI implements IApiRequest {
     todos.forEach(async (todo) => {
       await this.edit(todo.id, { ...todo, isDone });
     });
+
+    return;
   }
 }
