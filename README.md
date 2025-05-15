@@ -13,7 +13,7 @@ Bem-vindo ao teste para desenvolvimento front-end na enContact.
 Abra seu terminal e copie o comando a seguir:
 
 ```bash
-npm clone https://github.com/Leonardo-Maciel-S/DesafioReactEnkiGroup.git
+git clone https://github.com/Leonardo-Maciel-S/DesafioReactEnkiGroup.git
 ```
 
 #### Instalando dependência
